@@ -2,6 +2,12 @@
     "name": "lazhacks/h2-zex-skeleton",
     "type": "project",
     "homepage": "https://github.com/lazhacks/h2-zex-skeleton",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/lazhacks/h2-zex-common"
+        }
+    ],
     "require": {
         "roave/security-advisories": "dev-master",
         "zendframework/zend-expressive": "^0.5",
@@ -9,7 +15,8 @@
         "zendframework/zend-expressive-zendrouter": "^0.1",
         "zendframework/zend-servicemanager": "^2.5",
         "ocramius/proxy-manager": "^1.0",
-        "zendframework/zend-expressive-zendviewrenderer": "^0.1.2"
+        "zendframework/zend-expressive-zendviewrenderer": "^0.1.2",
+        "lazhacks/h2-zex-common": "dev-master"
     },
     "require-dev": {
         "composer/composer": ">=1.0.0-alpha10",
