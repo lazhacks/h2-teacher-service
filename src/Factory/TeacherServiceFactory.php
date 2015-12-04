@@ -23,7 +23,7 @@ class TeacherServiceFactory
             $entityPrototype
         );
 
-        $mapper->setEntityTable('Teacher');
+        $mapper->setEntityTable('teacher');
 
         return new TeacherService(
             $mapper,

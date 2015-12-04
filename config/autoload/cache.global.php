@@ -3,7 +3,6 @@
 $caches = array('caches' => array());
 
 if (extension_loaded('redis')) {
-    /*
     $caches['caches']['Redis'] = array(
         'adapter' => 'redis',
         'ttl'     => 60,
@@ -14,12 +13,11 @@ if (extension_loaded('redis')) {
         ),
         'options' => array(
             'server' => array(
-                'host' => '127.0.0.1',
+                'host' => '10.132.162.130',
                 'port' => '6379',
             )
         ),
     );
-    */
 }
 
 return $caches;
