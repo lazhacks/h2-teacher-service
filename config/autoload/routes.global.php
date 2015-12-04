@@ -9,15 +9,9 @@ return [
 
     'routes' => [
         [
-            'name' => 'home',
-            'path' => '/',
-            'middleware' => App\Action\HomePageAction::class,
-            'allowed_methods' => ['GET'],
-        ],
-        [
-            'name' => 'api.ping',
-            'path' => '/api/ping',
-            'middleware' => App\Action\PingAction::class,
+            'name' => 'api.teacher',
+            'path' => '/api/teacher[/:id]',
+            'middleware' => Teacher\Action\TeacherAction::class,
             'allowed_methods' => ['GET'],
         ],
     ],

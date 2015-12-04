@@ -1,7 +1,7 @@
 {
-    "name": "lazhacks/h2-zex-skeleton",
+    "name": "lazhacks/h2-teacher",
     "type": "project",
-    "homepage": "https://github.com/lazhacks/h2-zex-skeleton",
+    "homepage": "https://github.com/lazhacks/h2-teacher",
     "repositories": [
         {
             "type": "vcs",
@@ -15,7 +15,8 @@
         "zendframework/zend-expressive-zendrouter": "^0.1",
         "zendframework/zend-servicemanager": "^2.5",
         "ocramius/proxy-manager": "^1.0",
-        "zendframework/zend-expressive-zendviewrenderer": "^0.1.2",
+        "zendframework/zend-db": "^2.6",
+        "zendframework/zend-cache": "^2.5",
         "lazhacks/h2-zex-common": "dev-master"
     },
     "require-dev": {
@@ -26,12 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "AppTest\\": "test/"
+            "Teacher\\": "src/"
         }
     },
     "scripts": {
