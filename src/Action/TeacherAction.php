@@ -30,21 +30,21 @@ class TeacherAction
     /**
      * @var WebService|Client
      */
-    private $classroom;
+    private $studentWebService;
 
     /**
      * @param RouterInterface $router
      * @param TeacherService $teacherService
-     * @param WebService $classroom
+     * @param WebService $studentWebService
      */
     public function __construct(
         RouterInterface $router,
         TeacherService $teacherService,
-        WebService $classroom
+        WebService $studentWebService
     ) {
-        $this->router         = $router;
-        $this->teacherService = $teacherService;
-        $this->classroom      = $classroom;
+        $this->router            = $router;
+        $this->teacherService    = $teacherService;
+        $this->studentWebService = $studentWebService;
     }
 
     /**
@@ -70,18 +70,18 @@ class TeacherAction
         }
 
         /** @var Response $response */
-        $response = $this->classroom->get(
-            '/api/teacher/classroom/' . $teacherId
+        $response = $this->studentWebService->get(
+            '/api/student',
+            array('query' => array('teacher_id' => $teacherId))
         );
 
-        $classroom = $this->classroom->getData($response);
-
-        print_r($classroom);exit;
+        $students = $this->studentWebService->getData($response);
 
         return new JsonResponse([
             'id'         => $teacher->getId(),
             'first_name' => $teacher->getFirstName(),
-            'last_name'  => $teacher->getLastName()
+            'last_name'  => $teacher->getLastName(),
+            'students'   => $students
         ]);
     }
 }

@@ -15,14 +15,14 @@ class TeacherActionFactory
      */
     public function __invoke(ContainerInterface $container)
     {
-        $router      = $container->get(RouterInterface::class);
-        $userService = $container->get(TeacherService::class);
-        $classroom   = $container->get('ClassroomWebService');
+        $router            = $container->get(RouterInterface::class);
+        $userService       = $container->get(TeacherService::class);
+        $studentWebService = $container->get('StudentWebService');
 
         return new TeacherAction(
             $router,
             $userService,
-            $classroom
+            $studentWebService
         );
     }
 }
