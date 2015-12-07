@@ -63,25 +63,20 @@ class TeacherAction
         );
 
         /** @var TeacherEntity $teacher */
-        $teacher = $this->teacherService->findById($teacherId);
+        $teacher = $this->teacherService->findByIdWithClassroom(
+            $teacherId,
+            $this->studentWebService
+        );
 
         if (!$teacher->isValid()) {
             return $response->withStatus(404, 'Not Found');
         }
 
-        /** @var Response $response */
-        $response = $this->studentWebService->get(
-            '/api/student',
-            array('query' => array('teacher_id' => $teacherId))
-        );
-
-        $students = $this->studentWebService->getData($response);
-
         return new JsonResponse([
             'id'         => $teacher->getId(),
             'first_name' => $teacher->getFirstName(),
             'last_name'  => $teacher->getLastName(),
-            'students'   => $students
+            'students'   => $teacher->getStudents()
         ]);
     }
 }

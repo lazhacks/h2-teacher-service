@@ -39,6 +39,9 @@ class TeacherEntity implements EntityInterface
     /** @var string */
     private $lastModified;
 
+    /** @var array */
+    private $students = array();
+
     /**
      * @return bool
      */
@@ -216,10 +219,34 @@ class TeacherEntity implements EntityInterface
     }
 
     /**
+     * @return bool
+     */
+    public function hasStudents()
+    {
+        return !empty($this->students);
+    }
+
+    /**
      * @param string $lastModified
      */
     public function setLastModified($lastModified)
     {
         $this->lastModified = $lastModified;
+    }
+
+    /**
+     * @param array $students
+     */
+    public function setStudents(array $students = array())
+    {
+        $this->students = $students;
+    }
+
+    /**
+     * @return array
+     */
+    public function getStudents()
+    {
+        return $this->students;
     }
 }
