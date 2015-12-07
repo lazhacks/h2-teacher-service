@@ -17,7 +17,12 @@ class TeacherActionFactory
     {
         $router      = $container->get(RouterInterface::class);
         $userService = $container->get(TeacherService::class);
+        $classroom   = $container->get('ClassroomWebService');
 
-        return new TeacherAction($router, $userService);
+        return new TeacherAction(
+            $router,
+            $userService,
+            $classroom
+        );
     }
 }
